@@ -2,7 +2,7 @@ import { render, screen, fireEvent, act } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { describe, it, jest, beforeEach } from "@jest/globals";
 import ToolsTab from "../ToolsTab";
-import { Tool } from "@modelcontextprotocol/sdk/types.js";
+import { Tool } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/types.js";
 import { Tabs } from "@/components/ui/tabs";
 import { cacheToolOutputSchemas } from "@/utils/schemaUtils";
 

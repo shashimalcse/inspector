@@ -1,4 +1,4 @@
-import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import { Client } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/index.js";
 import { McpResponse } from "./types.js";
 
 // List available prompts

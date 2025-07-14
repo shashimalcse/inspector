@@ -21,7 +21,7 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.13.1",
+    "@pavindulakshan/modelcontextprotocol-typescript-sdk": "2.0.0",
     "commander": "^13.1.0",
     "spawn-rx": "^5.1.2"
   }

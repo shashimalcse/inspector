@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { InspectorOAuthClientProvider } from "../lib/auth";
 import { SESSION_KEYS } from "../lib/constants";
-import { auth } from "@modelcontextprotocol/sdk/client/auth.js";
+import { auth } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/auth.js";
 import { useToast } from "@/lib/hooks/useToast";
 import {
   generateOAuthErrorDescription,

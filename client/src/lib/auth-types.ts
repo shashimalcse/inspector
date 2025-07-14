@@ -4,7 +4,7 @@ import {
   OAuthClientInformation,
   OAuthTokens,
   OAuthProtectedResourceMetadata,
-} from "@modelcontextprotocol/sdk/shared/auth.js";
+} from "@pavindulakshan/modelcontextprotocol-typescript-sdk/shared/auth.js";
 
 // OAuth flow steps
 export type OAuthStep =

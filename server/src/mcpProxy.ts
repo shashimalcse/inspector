@@ -1,5 +1,5 @@
-import { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
-import { isJSONRPCRequest } from "@modelcontextprotocol/sdk/types.js";
+import { Transport } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/shared/transport.js";
+import { isJSONRPCRequest } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/types.js";
 
 function onClientError(error: Error) {
   console.error("Error from inspector client:", error);

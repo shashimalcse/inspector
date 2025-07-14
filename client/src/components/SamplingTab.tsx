@@ -3,7 +3,7 @@ import { TabsContent } from "@/components/ui/tabs";
 import {
   CreateMessageRequest,
   CreateMessageResult,
-} from "@modelcontextprotocol/sdk/types.js";
+} from "@pavindulakshan/modelcontextprotocol-typescript-sdk/types.js";
 import SamplingRequest from "./SamplingRequest";
 
 export type PendingRequest = {

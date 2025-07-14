@@ -1,4 +1,4 @@
-import { OAuthClientProvider } from "@modelcontextprotocol/sdk/client/auth.js";
+import { OAuthClientProvider } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/auth.js";
 import {
   OAuthClientInformationSchema,
   OAuthClientInformation,
@@ -6,7 +6,7 @@ import {
   OAuthTokensSchema,
   OAuthClientMetadata,
   OAuthMetadata,
-} from "@modelcontextprotocol/sdk/shared/auth.js";
+} from "@pavindulakshan/modelcontextprotocol-typescript-sdk/shared/auth.js";
 import { SESSION_KEYS, getServerSpecificKey } from "./constants";
 
 export class InspectorOAuthClientProvider implements OAuthClientProvider {
@@ -37,6 +37,11 @@ export class InspectorOAuthClientProvider implements OAuthClientProvider {
     );
     const value = sessionStorage.getItem(key);
     if (!value) {
+      // Check if we have preregistered client information
+      const preregisteredInfo = this.getPreregisteredClientInformation();
+      if (preregisteredInfo) {
+        return preregisteredInfo;
+      }
       return undefined;
     }
 
@@ -101,6 +106,21 @@ export class InspectorOAuthClientProvider implements OAuthClientProvider {
     sessionStorage.removeItem(
       getServerSpecificKey(SESSION_KEYS.CODE_VERIFIER, this.serverUrl),
     );
+  }
+
+  getPreregisteredClientInformation(): OAuthClientInformation | undefined {
+    const clientId = localStorage.getItem("lastOauthClientId");
+    const scope = localStorage.getItem("lastOauthScope");
+    
+    if (!clientId) {
+      return undefined;
+    }
+
+    return {
+      client_id: clientId,
+      client_secret: undefined,
+      ...(scope && { scope }),
+    };
   }
 }
 

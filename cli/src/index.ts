@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import { Client } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/index.js";
 import { Command } from "commander";
 import {
   callTool,

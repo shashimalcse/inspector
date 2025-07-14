@@ -3,7 +3,7 @@ import { CheckCircle2, Circle, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
 import { DebugInspectorOAuthClientProvider } from "@/lib/auth";
 import { useEffect, useMemo, useState } from "react";
-import { OAuthClientInformation } from "@modelcontextprotocol/sdk/shared/auth.js";
+import { OAuthClientInformation } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/shared/auth.js";
 
 interface OAuthStepProps {
   label: string;

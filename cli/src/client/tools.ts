@@ -1,5 +1,5 @@
-import { Client } from "@modelcontextprotocol/sdk/client/index.js";
-import { Tool } from "@modelcontextprotocol/sdk/types.js";
+import { Client } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/index.js";
+import { Tool } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/types.js";
 import { McpResponse } from "./types.js";
 
 type JsonSchemaType = {

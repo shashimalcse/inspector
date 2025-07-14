@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Tabs } from "@/components/ui/tabs";
 import ResourcesTab from "../ResourcesTab";
-import { ResourceTemplate, Resource } from "@modelcontextprotocol/sdk/types.js";
+import { ResourceTemplate, Resource } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/types.js";
 
 // Mock the hooks and components
 jest.mock("@/lib/hooks/useCompletionState", () => ({

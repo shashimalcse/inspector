@@ -1,7 +1,7 @@
 import type { JsonValue, JsonSchemaType, JsonObject } from "./jsonUtils";
 import Ajv from "ajv";
 import type { ValidateFunction } from "ajv";
-import type { Tool } from "@modelcontextprotocol/sdk/types.js";
+import type { Tool } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/types.js";
 
 const ajv = new Ajv();
 

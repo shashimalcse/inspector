@@ -1,9 +1,9 @@
 import { renderHook, act } from "@testing-library/react";
 import { useConnection } from "../useConnection";
 import { z } from "zod";
-import { ClientRequest } from "@modelcontextprotocol/sdk/types.js";
+import { ClientRequest } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/types.js";
 import { DEFAULT_INSPECTOR_CONFIG } from "../../constants";
-import { SSEClientTransportOptions } from "@modelcontextprotocol/sdk/client/sse.js";
+import { SSEClientTransportOptions } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/sse.js";
 
 // Mock fetch
 global.fetch = jest.fn().mockResolvedValue({
@@ -45,11 +45,11 @@ const mockStreamableHTTPTransport: {
   options: undefined,
 };
 
-jest.mock("@modelcontextprotocol/sdk/client/index.js", () => ({
+jest.mock("@pavindulakshan/modelcontextprotocol-typescript-sdk/client/index.js", () => ({
   Client: jest.fn().mockImplementation(() => mockClient),
 }));
 
-jest.mock("@modelcontextprotocol/sdk/client/sse.js", () => ({
+jest.mock("@pavindulakshan/modelcontextprotocol-typescript-sdk/client/sse.js", () => ({
   SSEClientTransport: jest.fn((url, options) => {
     mockSSETransport.url = url;
     mockSSETransport.options = options;
@@ -58,7 +58,7 @@ jest.mock("@modelcontextprotocol/sdk/client/sse.js", () => ({
   SseError: jest.fn(),
 }));
 
-jest.mock("@modelcontextprotocol/sdk/client/streamableHttp.js", () => ({
+jest.mock("@pavindulakshan/modelcontextprotocol-typescript-sdk/client/streamableHttp.js", () => ({
   StreamableHTTPClientTransport: jest.fn((url, options) => {
     mockStreamableHTTPTransport.url = url;
     mockStreamableHTTPTransport.options = options;
@@ -66,7 +66,7 @@ jest.mock("@modelcontextprotocol/sdk/client/streamableHttp.js", () => ({
   }),
 }));
 
-jest.mock("@modelcontextprotocol/sdk/client/auth.js", () => ({
+jest.mock("@pavindulakshan/modelcontextprotocol-typescript-sdk/client/auth.js", () => ({
   auth: jest.fn().mockResolvedValue("AUTHORIZED"),
 }));
 
@@ -200,10 +200,10 @@ describe("useConnection", () => {
 
   describe("URL Port Handling", () => {
     const SSEClientTransport = jest.requireMock(
-      "@modelcontextprotocol/sdk/client/sse.js",
+      "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/sse.js",
     ).SSEClientTransport;
     const StreamableHTTPClientTransport = jest.requireMock(
-      "@modelcontextprotocol/sdk/client/streamableHttp.js",
+      "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/streamableHttp.js",
     ).StreamableHTTPClientTransport;
 
     beforeEach(() => {

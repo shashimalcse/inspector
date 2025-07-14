@@ -10,13 +10,13 @@ import {
   ListResourceTemplatesResult,
   ResourceReference,
   PromptReference,
-} from "@modelcontextprotocol/sdk/types.js";
+} from "@pavindulakshan/modelcontextprotocol-typescript-sdk/types.js";
 import { AlertCircle, ChevronRight, FileText, RefreshCw } from "lucide-react";
 import ListPane from "./ListPane";
 import { useEffect, useState } from "react";
 import { useCompletionState } from "@/lib/hooks/useCompletionState";
 import JsonView from "./JsonView";
-import { UriTemplate } from "@modelcontextprotocol/sdk/shared/uriTemplate.js";
+import { UriTemplate } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/shared/uriTemplate.js";
 
 const ResourcesTab = ({
   resources,

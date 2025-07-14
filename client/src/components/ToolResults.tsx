@@ -4,7 +4,7 @@ import {
   CallToolResultSchema,
   CompatibilityCallToolResult,
   Tool,
-} from "@modelcontextprotocol/sdk/types.js";
+} from "@pavindulakshan/modelcontextprotocol-typescript-sdk/types.js";
 import { validateToolOutput, hasOutputSchema } from "@/utils/schemaUtils";
 
 interface ToolResultsProps {

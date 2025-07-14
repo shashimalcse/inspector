@@ -7,11 +7,11 @@ import {
   exchangeAuthorization,
   discoverOAuthProtectedResourceMetadata,
   selectResourceURL,
-} from "@modelcontextprotocol/sdk/client/auth.js";
+} from "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/auth.js";
 import {
   OAuthMetadataSchema,
   OAuthProtectedResourceMetadata,
-} from "@modelcontextprotocol/sdk/shared/auth.js";
+} from "@pavindulakshan/modelcontextprotocol-typescript-sdk/shared/auth.js";
 
 export interface StateMachineContext {
   state: AuthDebuggerState;
@@ -38,6 +38,7 @@ export const oauthTransitions: Record<OAuthStep, StateTransition> = {
         resourceMetadata = await discoverOAuthProtectedResourceMetadata(
           context.serverUrl,
         );
+        console.log("Discovered resource metadata:", resourceMetadata);
         if (resourceMetadata?.authorization_servers?.length) {
           authServerUrl = new URL(resourceMetadata.authorization_servers[0]);
         }
@@ -55,7 +56,7 @@ export const oauthTransitions: Record<OAuthStep, StateTransition> = {
         // we default to null, so swap it for undefined if not set
         resourceMetadata ?? undefined,
       );
-
+      console.log("Auth server URL:", authServerUrl.href);
       const metadata = await discoverOAuthMetadata(authServerUrl);
       if (!metadata) {
         throw new Error("Failed to discover OAuth metadata");

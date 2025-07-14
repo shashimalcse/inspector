@@ -7,7 +7,7 @@ import {
   hasOutputSchema,
 } from "../schemaUtils";
 import type { JsonSchemaType } from "../jsonUtils";
-import type { Tool } from "@modelcontextprotocol/sdk/types.js";
+import type { Tool } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/types.js";
 
 describe("generateDefaultValue", () => {
   test("generates default string", () => {

@@ -5,7 +5,7 @@ import { InspectorConfig } from "../lib/configurationTypes";
 import * as configUtils from "../utils/configUtils";
 
 // Mock auth dependencies first
-jest.mock("@modelcontextprotocol/sdk/client/auth.js", () => ({
+jest.mock("@pavindulakshan/modelcontextprotocol-typescript-sdk/client/auth.js", () => ({
   auth: jest.fn(),
 }));
 

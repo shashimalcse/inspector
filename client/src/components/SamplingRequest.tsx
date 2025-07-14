@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import {
   CreateMessageResult,
   CreateMessageResultSchema,
-} from "@modelcontextprotocol/sdk/types.js";
+} from "@pavindulakshan/modelcontextprotocol-typescript-sdk/types.js";
 import { PendingRequest } from "./SamplingTab";
 import DynamicJsonForm from "./DynamicJsonForm";
 import { useToast } from "@/lib/hooks/useToast";

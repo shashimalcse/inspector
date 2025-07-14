@@ -28,7 +28,7 @@ import { StdErrNotification } from "@/lib/notificationTypes";
 import {
   LoggingLevel,
   LoggingLevelSchema,
-} from "@modelcontextprotocol/sdk/types.js";
+} from "@pavindulakshan/modelcontextprotocol-typescript-sdk/types.js";
 import { InspectorConfig } from "@/lib/configurationTypes";
 import { ConnectionStatus } from "@/lib/constants";
 import useTheme from "../lib/hooks/useTheme";
@@ -56,6 +56,10 @@ interface SidebarProps {
   setBearerToken: (token: string) => void;
   headerName?: string;
   setHeaderName?: (name: string) => void;
+  oauthClientId?: string;
+  setOauthClientId?: (id: string) => void;
+  oauthScope?: string;
+  setOauthScope?: (scope: string) => void;
   onConnect: () => void;
   onDisconnect: () => void;
   stdErrNotifications: StdErrNotification[];
@@ -83,6 +87,10 @@ const Sidebar = ({
   setBearerToken,
   headerName,
   setHeaderName,
+  oauthClientId,
+  setOauthClientId,
+  oauthScope,
+  setOauthScope,
   onConnect,
   onDisconnect,
   stdErrNotifications,
@@ -352,6 +360,35 @@ const Sidebar = ({
                     />
                   </div>
                 )}
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium">OAuth Configuration</label>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium">Client ID</label>
+                  <Input
+                    placeholder="OAuth Client ID"
+                    value={oauthClientId}
+                    onChange={(e) =>
+                      setOauthClientId && setOauthClientId(e.target.value)
+                    }
+                    className="font-mono"
+                  />
+                  <label className="text-sm font-medium">Redirect URL</label>
+                  <Input
+                    value={`${window.location.origin}/oauth/callback`}
+                    readOnly
+                    className="font-mono bg-gray-50 dark:bg-gray-800"
+                  />
+                  <label className="text-sm font-medium">Scope</label>
+                  <Input
+                    placeholder="OAuth Scope"
+                    value={oauthScope}
+                    onChange={(e) =>
+                      setOauthScope && setOauthScope(e.target.value)
+                    }
+                    className="font-mono"
+                  />
+                </div>
               </div>
             </>
           )}

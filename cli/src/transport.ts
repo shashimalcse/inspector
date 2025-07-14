@@ -1,10 +1,10 @@
-import { SSEClientTransport } from "@modelcontextprotocol/sdk/client/sse.js";
+import { SSEClientTransport } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/sse.js";
 import {
   getDefaultEnvironment,
   StdioClientTransport,
-} from "@modelcontextprotocol/sdk/client/stdio.js";
-import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
-import type { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
+} from "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/stdio.js";
+import { StreamableHTTPClientTransport } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/streamableHttp.js";
+import type { Transport } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/shared/transport.js";
 import { findActualExecutable } from "spawn-rx";
 
 export type TransportOptions = {

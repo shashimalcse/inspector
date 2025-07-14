@@ -34,7 +34,7 @@ const mockOAuthClientInfo = {
 };
 
 // Mock MCP SDK functions - must be before imports
-jest.mock("@modelcontextprotocol/sdk/client/auth.js", () => ({
+jest.mock("@pavindulakshan/modelcontextprotocol-typescript-sdk/client/auth.js", () => ({
   auth: jest.fn(),
   discoverOAuthMetadata: jest.fn(),
   registerClient: jest.fn(),
@@ -52,8 +52,8 @@ import {
   exchangeAuthorization,
   auth,
   discoverOAuthProtectedResourceMetadata,
-} from "@modelcontextprotocol/sdk/client/auth.js";
-import { OAuthMetadata } from "@modelcontextprotocol/sdk/shared/auth.js";
+} from "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/auth.js";
+import { OAuthMetadata } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/shared/auth.js";
 import { EMPTY_DEBUGGER_STATE } from "@/lib/auth-types";
 
 // Type the mocked functions properly

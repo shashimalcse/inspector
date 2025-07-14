@@ -1,5 +1,5 @@
-import { Client } from "@modelcontextprotocol/sdk/client/index.js";
-import type { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
+import { Client } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/index.js";
+import type { Transport } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/shared/transport.js";
 import { McpResponse } from "./types.js";
 
 export const validLogLevels = [

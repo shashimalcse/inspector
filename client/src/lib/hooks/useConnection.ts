@@ -1,13 +1,13 @@
-import { Client } from "@modelcontextprotocol/sdk/client/index.js";
+import { Client } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/index.js";
 import {
   SSEClientTransport,
   SseError,
   SSEClientTransportOptions,
-} from "@modelcontextprotocol/sdk/client/sse.js";
+} from "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/sse.js";
 import {
   StreamableHTTPClientTransport,
   StreamableHTTPClientTransportOptions,
-} from "@modelcontextprotocol/sdk/client/streamableHttp.js";
+} from "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/streamableHttp.js";
 import {
   ClientNotification,
   ClientRequest,
@@ -28,14 +28,14 @@ import {
   ToolListChangedNotificationSchema,
   PromptListChangedNotificationSchema,
   Progress,
-} from "@modelcontextprotocol/sdk/types.js";
-import { RequestOptions } from "@modelcontextprotocol/sdk/shared/protocol.js";
+} from "@pavindulakshan/modelcontextprotocol-typescript-sdk/types.js";
+import { RequestOptions } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/shared/protocol.js";
 import { useState } from "react";
 import { useToast } from "@/lib/hooks/useToast";
 import { z } from "zod";
 import { ConnectionStatus } from "../constants";
 import { Notification, StdErrNotificationSchema } from "../notificationTypes";
-import { auth } from "@modelcontextprotocol/sdk/client/auth.js";
+import { auth } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/client/auth.js";
 import { InspectorOAuthClientProvider } from "../auth";
 import packageJson from "../../../package.json";
 import {
@@ -46,7 +46,7 @@ import {
 } from "@/utils/configUtils";
 import { getMCPServerRequestTimeout } from "@/utils/configUtils";
 import { InspectorConfig } from "../configurationTypes";
-import { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
+import { Transport } from "@pavindulakshan/modelcontextprotocol-typescript-sdk/shared/transport.js";
 
 interface UseConnectionOptions {
   transportType: "stdio" | "sse" | "streamable-http";
@@ -56,6 +56,8 @@ interface UseConnectionOptions {
   env: Record<string, string>;
   bearerToken?: string;
   headerName?: string;
+  oauthClientId?: string;
+  oauthScope?: string;
   config: InspectorConfig;
   onNotification?: (notification: Notification) => void;
   onStdErrNotification?: (notification: Notification) => void;
@@ -73,6 +75,8 @@ export function useConnection({
   env,
   bearerToken,
   headerName,
+  oauthClientId,
+  oauthScope,
   config,
   onNotification,
   onStdErrNotification,
@@ -316,6 +320,14 @@ export function useConnection({
 
       // Create an auth provider with the current server URL
       const serverAuthProvider = new InspectorOAuthClientProvider(sseUrl);
+      
+      // Store OAuth client configuration in localStorage for persistence
+      if (oauthClientId) {
+        localStorage.setItem("lastOauthClientId", oauthClientId);
+      }
+      if (oauthScope) {
+        localStorage.setItem("lastOauthScope", oauthScope);
+      }
 
       // Use manually provided bearer token if available, otherwise use OAuth tokens
       const token =
